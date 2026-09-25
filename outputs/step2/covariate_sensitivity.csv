@@ -1,0 +1,16 @@
+task,variant,model,n_continuous,n_categorical,r2_cv,bss,auc_excess_risk
+regression,without soil,elastic_net,10,2,-0.010429652831635439,,
+regression,without soil,random_forest,10,2,-0.04596915059939799,,
+regression,without fault distance,elastic_net,9,3,-0.016637663607228736,,
+regression,without fault distance,random_forest,9,3,-0.05625505392114327,,
+regression,without both,elastic_net,9,2,-0.017218553442350126,,
+regression,without both,random_forest,9,2,-0.07779513929496806,,
+classification,without soil,logistic,10,2,,0.04730802148175128,0.590093013194895
+classification,without soil,random_forest,10,2,,-0.08452706056384551,0.4799913476097772
+classification,without soil,mlp,10,2,,-0.15627419211319515,0.6528228423101882
+classification,without fault distance,logistic,9,3,,0.04982047233492026,0.5972312351287044
+classification,without fault distance,random_forest,9,3,,-0.09853184903971601,0.4583603720527796
+classification,without fault distance,mlp,9,3,,-0.10806041049873683,0.6768332251784556
+classification,without both,logistic,9,2,,0.05001057483208593,0.6024226692623837
+classification,without both,random_forest,9,2,,-0.0971121330259308,0.44992429158555053
+classification,without both,mlp,9,2,,-0.07356618292766925,0.6963011031797534

@@ -1,0 +1,15 @@
+{
+  "median_Q_productive": 1.2,
+  "median_Sc_productive": 0.093,
+  "median_T_productive": 7.39915e-06,
+  "n_Q_ge_0p5": 173,
+  "n_Q_ge_1": 116,
+  "depth_dry_vs_productive_MW_p": 3.948936866332419e-09,
+  "nn_distance_min_m": 0.44449058877493586,
+  "nn_distance_median_km": 1.1886611404565623,
+  "pairs_lt_100m": 10,
+  "pairs_lt_500m": 49,
+  "pairs_lt_1km": 151,
+  "possible_duplicates": 3,
+  "status_expected_discordance_independence": 0.187986072016847
+}

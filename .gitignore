@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+venv/
+.venv/
+local_env.bat
+biabak/config.py.bak
+outputs/**/*.pkl 
+outputs/**/*.npy
