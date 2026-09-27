@@ -1,4 +1,4 @@
-﻿cff-version: 1.2.0
+cff-version: 1.2.0
 message: "If you use the BIABAK Transferability Framework code package, please cite the article and the archived release."
 title: "BIABAK Transferability Framework: reproducible transferability audit for point-based environmental predictions"
 version: "1.0.0"
