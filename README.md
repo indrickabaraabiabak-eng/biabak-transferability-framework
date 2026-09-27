@@ -19,15 +19,28 @@ effect sizes a null result can and cannot exclude.
    compatibility rule.
 
 ## Installation
-    python -m venv venv && source venv/bin/activate
-    pip install -r requirements.txt
+BIABAK requires Python 3.12.
+
+Clone the repository, enter the project directory, create a virtual environment, and install the framework in editable mode:
+
+    git clone https://github.com/indrickabaraabiabak-eng/biabak-transferability-framework.git
+    cd biabak-transferability-framework
+    py -3.12 -m venv .venv
+    .venv\Scripts\activate
+    python -m pip install -e .
+
+After installation, verify that the command-line interface is available:
+
+    biabak --help
 
 ## Running
-The workflow uses portable relative paths by default. Personal paths must not be written into the source code. Input locations can instead be supplied through environment variables defined before execution.
+On Windows, copy `local_env.example.bat` to `local_env.bat`, edit the paths in the local copy, then run:
 
-On Windows, copy `local_env.example.bat` to `local_env.bat`, edit the paths in the local copy, then run `call local_env.bat` before starting the workflow. The local file is excluded from version control.
+    call local_env.bat
 
-Supported variables are:
+The local file is excluded from version control.
+
+The following environment variables can be used to point BIABAK to the required data and output locations:
 
 - `BIABAK_DATA_DIR`
 - `BIABAK_BOREHOLE_XLSX`
@@ -37,11 +50,17 @@ Supported variables are:
 - `BIABAK_SOIL_SHP`
 - `BIABAK_OUT_DIR`
 
-If no variables are supplied, inputs are sought under the project `data/` directory and outputs are written to `outputs/`.
+Run the complete workflow with:
 
-    python run_all.py                    # complete workflow
-    python run_all.py --skip-benchmark   # workflow without the synthetic benchmark
-    python -m pytest -q tests            # unit tests
+    biabak run
+
+To skip the computationally intensive synthetic benchmark:
+
+    biabak run --skip-benchmark
+
+Run the unit tests with:
+
+    py -3.12 -m pytest -q tests
 
 All analytical constants (seeds, lags, permutations, bootstrap resamples, NNDM settings and benchmark design) are declared in `biabak/config.py` or explicitly in the corresponding analysis script.
 
