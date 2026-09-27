@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biabak-transferability-framework"
+version = "1.0.0"
+description = "Reproducible framework for auditing the spatial transferability of point-based environmental predictions"
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "numpy==2.4.4",
+    "scipy==1.17.1",
+    "pandas==3.0.2",
+    "scikit-learn==1.8.0",
+    "rasterio==1.5.1",
+    "pyproj==3.8.0",
+    "shapely==2.1.2",
+    "pyshp==3.1.6",
+    "matplotlib==3.10.8",
+    "openpyxl==3.1.5",
+]
+
+[project.scripts]
+biabak = "biabak.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["biabak*"]
