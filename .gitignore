@@ -7,3 +7,4 @@ local_env.bat
 biabak/config.py.bak
 outputs/**/*.pkl 
 outputs/**/*.npy
+*.egg-info/
