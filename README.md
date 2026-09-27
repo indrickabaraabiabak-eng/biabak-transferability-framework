@@ -58,9 +58,10 @@ To skip the computationally intensive synthetic benchmark:
 
     biabak run --skip-benchmark
 
-Run the unit tests with:
+To install the optional test dependencies and run the unit tests:
 
-    py -3.12 -m pytest -q tests
+    python -m pip install -e .[test]
+    python -m pytest -q tests
 
 All analytical constants (seeds, lags, permutations, bootstrap resamples, NNDM settings and benchmark design) are declared in `biabak/config.py` or explicitly in the corresponding analysis script.
 
