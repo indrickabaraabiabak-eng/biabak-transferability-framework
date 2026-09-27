@@ -69,4 +69,6 @@ All analytical constants (seeds, lags, permutations, bootstrap resamples, NNDM s
 The complete workflow requires the borehole inventory and the covariate raster/vector layers described in `biabak/config.py`. The original borehole archive used in the article cannot be redistributed under the provider conditions. Redistributable derived results are provided as Supplementary Tables S1 to S42 in three workbooks: S1-S23 for archive and spatial-structure diagnostics, S24-S34 for validation and predictive performance, and S35-S42 for applicability and the synthetic detection benchmark.
 
 ## Citation
-See `CITATION.cff`.
+Zenodo DOI: `10.5281/zenodo.23002288`
+
+See `CITATION.cff` for the complete citation metadata.
