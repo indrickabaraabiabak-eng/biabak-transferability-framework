@@ -69,6 +69,6 @@ All analytical constants (seeds, lags, permutations, bootstrap resamples, NNDM s
 The complete workflow requires the borehole inventory and the covariate raster/vector layers described in `biabak/config.py`. The original borehole archive used in the article cannot be redistributed under the provider conditions. Individual borehole records, locality names, coordinates, hydraulic measurements and row-level derived covariates are therefore not included in the public release. Public supplementary workbooks preserve the cited table numbering, but record-level slots (Tables S3, S4, S7, S8 and S37) contain data-access statements rather than individual records. Aggregated diagnostics, model-performance summaries, benchmark results and other non-record-level derived outputs are provided in the remaining supplementary tables. Public figures omit individual borehole locations. Authorized users who have lawful access to the original archive can regenerate the full internal record-level outputs locally with the released code.
 
 ## Citation
-Zenodo DOI: `10.5281/zenodo.23002288`
+Zenodo DOI: `10.5281/zenodo.23038162``
 
 See `CITATION.cff` for the complete citation metadata.

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "biabak-transferability-framework"
-version = "1.0.0"
+version = "1.0.1"
 description = "Reproducible framework for auditing the spatial transferability of point-based environmental predictions"
 readme = "README.md"
 requires-python = ">=3.12"

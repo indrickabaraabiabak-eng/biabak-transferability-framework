@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use the BIABAK Transferability Framework code package, please cite the article and the archived release."
 title: "BIABAK Transferability Framework: reproducible transferability audit for point-based environmental predictions"
-version: "1.0.0"
-doi: "10.5281/zenodo.23002288"
-date-released: 2026-09-27
+version: "1.0.1"
+doi: "10.5281/zenodo.23038162"
+date-released: 2026-09-29
 authors:
   - family-names: "Abara A Biabak"
     given-names: "Indrick"
