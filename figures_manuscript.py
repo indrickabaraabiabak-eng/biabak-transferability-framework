@@ -91,9 +91,9 @@ segs = [np.array(s.points) for s in flt.shapes()]
 ax.add_collection(LineCollection(segs, colors="#8b0000", linewidths=0.9, label="mapped faults"))
 cs = bh.common_support == 1
 p = cs & (bh.productive == 1); u = bh.productive == 0; ex = ~cs
-ax.scatter(bh.Longitude[p], bh.Latitude[p], s=10, c="#1f4e79", edgecolors="white", linewidths=0.3, label=f"productive ({int(p.sum())})", zorder=4)
-ax.scatter(bh.Longitude[u], bh.Latitude[u], s=26, c="#c0392b", marker="x", linewidths=1.1, label=f"unsuccessful ({int(u.sum())})", zorder=5)
-ax.scatter(bh.Longitude[ex], bh.Latitude[ex], s=28, facecolors="none", edgecolors="k", marker="^", linewidths=0.9, label=f"productive, outside common support ({int(ex.sum())})", zorder=5)
+# Public-release figure: individual borehole locations are omitted because the
+# provider conditions do not permit redistribution of record-level coordinates.
+ax.plot([], [], linestyle="none", marker="", label=f"borehole locations withheld (n={len(bh)})")
 lat0, lon0 = C.CLUSTER_CENTRE_LATLON
 r_deg = C.CLUSTER_RADIUS_KM / 111.0
 ax.add_patch(plt.matplotlib.patches.Ellipse((lon0, lat0), 2 * r_deg / np.cos(np.deg2rad(lat0)), 2 * r_deg, fill=False, ls="--", lw=1.0, ec="k"))

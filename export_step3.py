@@ -8,6 +8,15 @@ from biabak import config as C
 
 OUT = C.OUT_DIR / "step3"
 
+
+def public_placeholder(title):
+    return pd.DataFrame({
+        "status": ["withheld from public redistribution"],
+        "note": [
+            "The provider conditions do not permit redistribution of individual borehole records, locality names, coordinates, hydraulic measurements, or row-level derived outputs. Aggregate area-of-applicability results are reported in Tables S35-S36. Authorized users with lawful access to the original archive can regenerate this table locally with the released code."
+        ],
+    })
+
 A = pickle.load(open(OUT / "step3a_tables.pkl", "rb"))
 B = pickle.load(open(OUT / "step3b_tables.pkl", "rb"))
 C3 = pickle.load(open(OUT / "step3c_tables.pkl", "rb"))
@@ -57,8 +66,8 @@ order = [
         "Share of the prediction grid inside the area of applicability by distance to the nearest borehole",
     ),
     (
-        A["aoa_training_DI"],
-        "Training dissimilarity index of every borehole under its NNDM fold",
+        public_placeholder("Training dissimilarity index of every borehole under its NNDM fold"),
+        "Training dissimilarity index of every borehole under its NNDM fold (record-level values withheld from public redistribution)",
     ),
     (
         design,

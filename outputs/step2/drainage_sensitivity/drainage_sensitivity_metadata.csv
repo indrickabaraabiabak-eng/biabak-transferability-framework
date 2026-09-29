@@ -1,0 +1,3 @@
+task,n,n_folds,drainage_missing,drainage_valid,phi,median_train_n,min_train_n,max_train_n
+regression,201,201,2,199,128.40514843540217,139.0,101,200
+classification,224,224,2,222,128.40514843540217,153.5,112,223

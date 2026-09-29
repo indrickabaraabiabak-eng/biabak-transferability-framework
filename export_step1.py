@@ -5,6 +5,21 @@ from openpyxl.styles import Font, Alignment, PatternFill
 from openpyxl.utils import get_column_letter
 from biabak import config as C
 OUT = C.OUT_DIR / "step1"
+
+RESTRICTED_PUBLIC_KEYS = {
+    "S3_borehole_covariates",
+    "S4_extraction_flags",
+    "S7_nearest_neighbour",
+    "S8_close_pairs_under_2km",
+}
+
+def public_placeholder(title):
+    return pd.DataFrame({
+        "status": ["withheld from public redistribution"],
+        "note": [
+            "The provider conditions do not permit redistribution of individual borehole records, locality names, coordinates, hydraulic measurements, or row-level derived covariates. Authorized users with lawful access to the original archive can regenerate this table locally with the released code."
+        ],
+    })
 T = pickle.load(open(OUT / "step1_tables.pkl", "rb"))
 order = [
  ("S1_populations", "Analytical populations and their use"),
@@ -36,7 +51,7 @@ readme = []
 with pd.ExcelWriter(path, engine="openpyxl") as xw:
     for n, (k, title) in enumerate(order, start=1):
         sid = f"Table S{n}"
-        df = T[k].copy()
+        df = public_placeholder(title) if k in RESTRICTED_PUBLIC_KEYS else T[k].copy()
         for c in df.columns:
             if df[c].dtype == bool: df[c] = df[c].map({True: "yes", False: "no"})
         sheet = f"S{n}"

@@ -133,13 +133,16 @@ fig, axs = plt.subplots(2, 2, figsize=(7.0, 6.6))
 ax = axs[0, 0]
 sub = s["sub"]
 ins = s["inside"]
-ax.scatter(sub.x_km[~ins], sub.y_km[~ins], s=9, c="#4C72B0", label=f"outside ({(~ins).sum()})")
-ax.scatter(sub.x_km[ins], sub.y_km[ins], s=9, c="#C44E52", label=f"inside ({ins.sum()})")
-tr = Transformer.from_crs(C.CRS_GEOGRAPHIC, C.CRS_ANALYSIS, always_xy=True)
-cx, cy = tr.transform(C.CLUSTER_CENTRE_LATLON[1], C.CLUSTER_CENTRE_LATLON[0])
-ax.add_patch(Circle((cx / 1000, cy / 1000), C.CLUSTER_RADIUS_KM, fill=False, ls="--", lw=0.9))
-ax.set_aspect("equal"); ax.set_xlabel("UTM 32N easting (km)"); ax.set_ylabel("UTM 32N northing (km)")
-ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, title=f"within {C.CLUSTER_RADIUS_KM:.0f} km of Yaoundé")
+# Public-release panel: report the cluster decomposition without displaying
+# individual borehole coordinates.
+labels = ["outside", "inside"]
+counts = [int((~ins).sum()), int(ins.sum())]
+ax.bar(labels, counts, color=["#4C72B0", "#C44E52"], width=0.65)
+for j, n_ in enumerate(counts):
+    ax.text(j, n_ + max(counts) * 0.03, str(n_), ha="center", va="bottom", fontsize=8)
+ax.set_ylabel("number of productive boreholes")
+ax.set_xlabel(f"relative to the {C.CLUSTER_RADIUS_KM:.0f} km Yaoundé cluster")
+ax.set_ylim(0, max(counts) * 1.18)
 ax.text(-0.2, 1.04, "(a)", transform=ax.transAxes, fontweight="bold", fontsize=10)
 ax = axs[0, 1]
 cc = {"both inside cluster": "#C44E52", "one inside, one outside": "#8172B3", "both outside cluster": "#4C72B0"}

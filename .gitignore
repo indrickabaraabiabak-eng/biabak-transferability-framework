@@ -8,3 +8,6 @@ biabak/config.py.bak
 outputs/**/*.pkl 
 outputs/**/*.npy
 *.egg-info/
+
+# Provider-restricted record-level sensitivity output
+outputs/step2/drainage_sensitivity/drainage_values_224.csv

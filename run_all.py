@@ -29,6 +29,9 @@ STEPS = [
 skip = {
     "run_step3b_benchmark.py",
     "run_step3c_extension.py",
+    "analyze_step3.py",
+    "analyze_step3c.py",
+    "export_step3.py",
 } if "--skip-benchmark" in sys.argv else set()
 
 for s in STEPS:

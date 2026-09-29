@@ -34,8 +34,10 @@ CRS_ANALYSIS = 32632       # UTM zone 32N, used for every distance in the study
 
 # ----------------------------------------------------------------------------
 # Raster covariates: column name -> (file stem, type)
-# Drainage.tif is deliberately absent: the extraction log states that its
-# physical meaning could not be established.
+# Drainage.tif is deliberately absent from the primary predictor set. It is a
+# drainage-density raster (km/km2), but the exact processing chain leading to
+# the archived 100-m raster could not be reconstructed unambiguously. It is
+# evaluated separately in a sensitivity analysis.
 # ----------------------------------------------------------------------------
 RASTER_COVARIATES = {
     "elevation_m": ("DEM_100m", "continuous"),

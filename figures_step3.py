@@ -24,8 +24,6 @@ plt.rcParams.update({"font.family": "serif", "font.serif": ["DejaVu Serif"], "ma
                      "axes.spines.top": False, "axes.spines.right": False, "savefig.dpi": 300})
 A = pickle.load(open(OUT / "step3a_tables.pkl", "rb"))
 G = pd.read_pickle(OUT / "aoa_grid.pkl")
-T1 = pickle.load(open(C.OUT_DIR / "step1" / "step1_tables.pkl", "rb"))
-bh = T1["S3_borehole_covariates"]
 thr = float(A["aoa_summary"].threshold.iloc[0])
 
 
@@ -37,12 +35,11 @@ def letter(ax, s, x=-0.14, y=1.03):
 fig, axs = plt.subplots(1, 3, figsize=(7.8, 3.3), gridspec_kw={"width_ratios": [1, 1, 0.8]})
 g = G.dropna(subset=["DI"])
 sc = axs[0].scatter(g.x_km, g.y_km, c=g.DI, s=0.4, cmap="viridis", vmin=0, vmax=np.percentile(g.DI, 99), rasterized=True)
-axs[0].scatter(bh.x_km, bh.y_km, s=3, c="white", edgecolors="k", linewidths=0.3)
 cb = fig.colorbar(sc, ax=axs[0], shrink=0.8); cb.set_label("dissimilarity index")
+axs[0].text(0.02, 0.02, "individual borehole locations withheld", transform=axs[0].transAxes, fontsize=6.5, bbox=dict(fc="white", ec="none", alpha=0.75))
 axs[0].set_aspect("equal"); axs[0].set_xlabel("UTM 32N easting (km)"); axs[0].set_ylabel("UTM 32N northing (km)")
 letter(axs[0], "(a)", -0.3)
 axs[1].scatter(g.x_km, g.y_km, c=np.where(g.in_AoA == 1, 0, 1), s=0.4, cmap=ListedColormap(["#c7e9c0", "#d7301f"]), rasterized=True)
-axs[1].scatter(bh.x_km, bh.y_km, s=3, c="k")
 axs[1].set_aspect("equal"); axs[1].set_xlabel("UTM 32N easting (km)"); axs[1].set_ylabel("UTM 32N northing (km)")
 share = A["aoa_summary"].share_domain_in_AoA.iloc[0]
 letter(axs[1], "(b)", -0.3)
@@ -53,7 +50,11 @@ letter(axs[2], "(c)", -0.35)
 fig.tight_layout(); fig.savefig(OUT / "Fig_B1_area_of_applicability.png", bbox_inches="tight"); plt.close(fig)
 
 # Figure B: detection power under NNDM and under one random split
-T = pickle.load(open(OUT / "step3b_tables.pkl", "rb"))
+step3b = OUT / "step3b_tables.pkl"
+if not step3b.exists():
+    print("step3b_tables.pkl absent: benchmark figures skipped; Fig_B1 only written")
+    raise SystemExit(0)
+T = pickle.load(open(step3b, "rb"))
 PW = T["benchmark_power"]
 fig, axs = plt.subplots(2, 3, figsize=(7.4, 5.2), sharey=True)
 panels = [("regression", "ridge", np.nan, r"regression, ridge"), ("regression", "kriging", np.nan, "regression, ordinary kriging"),

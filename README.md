@@ -65,8 +65,8 @@ To install the optional test dependencies and run the unit tests:
 
 All analytical constants (seeds, lags, permutations, bootstrap resamples, NNDM settings and benchmark design) are declared in `biabak/config.py` or explicitly in the corresponding analysis script.
 
-## Inputs
-The complete workflow requires the borehole inventory and the covariate raster/vector layers described in `biabak/config.py`. The original borehole archive used in the article cannot be redistributed under the provider conditions. Redistributable derived results are provided as Supplementary Tables S1 to S42 in three workbooks: S1-S23 for archive and spatial-structure diagnostics, S24-S34 for validation and predictive performance, and S35-S42 for applicability and the synthetic detection benchmark.
+## Inputs and data-access restrictions
+The complete workflow requires the borehole inventory and the covariate raster/vector layers described in `biabak/config.py`. The original borehole archive used in the article cannot be redistributed under the provider conditions. Individual borehole records, locality names, coordinates, hydraulic measurements and row-level derived covariates are therefore not included in the public release. Public supplementary workbooks preserve the cited table numbering, but record-level slots (Tables S3, S4, S7, S8 and S37) contain data-access statements rather than individual records. Aggregated diagnostics, model-performance summaries, benchmark results and other non-record-level derived outputs are provided in the remaining supplementary tables. Public figures omit individual borehole locations. Authorized users who have lawful access to the original archive can regenerate the full internal record-level outputs locally with the released code.
 
 ## Citation
 Zenodo DOI: `10.5281/zenodo.23002288`
